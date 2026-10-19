@@ -17,7 +17,7 @@ typedef struct {
 
 } ResultadoAnalise;
 
-// compilador_ler_arquivo: lê o conteúdo de um arquivo texto e retorna 
+// compilador_ler_arquivo: lê o conteúdo de um arquivo texto e retorna
 // uma string alocada dinamicamente com o código-fonte.
 // O chamador é responsável por chamar free() na string retornada.
 // Retorna NULL em caso de erro ao abrir ou ler o arquivo.
