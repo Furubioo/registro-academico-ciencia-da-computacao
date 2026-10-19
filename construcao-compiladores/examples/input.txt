@@ -1,0 +1,23 @@
+int main() {
+    int x, y;
+    float media;
+    char letra;
+
+    x = 10;
+    y = x + 5;
+    media = y / 2.0;
+
+    if (x > y) {
+        x = x - 1;
+    } else {
+        y = y + 1;
+    }
+
+    while (x < 20) {
+        x = x + 1;
+    }
+
+    do {
+        y = y - 1;
+    } while (y > 0);
+}

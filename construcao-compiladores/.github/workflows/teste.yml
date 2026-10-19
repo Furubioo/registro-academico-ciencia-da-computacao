@@ -1,0 +1,29 @@
+name: Teste
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  compilacao-e-testes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: ⚙️ Compilar Testes do Léxico
+        run: |
+          gcc -Isrc/token -Isrc/lexer -Isrc/parser -Isrc/compiler -Itests -o tests/test_lexer.o tests/test_lexer.c src/token/token.c src/lexer/lexer.c src/parser/parser.c src/compiler/compilador.c
+
+      - name: ⚙️ Compilar Testes do Sintático
+        run: |
+          gcc -Isrc/token -Isrc/lexer -Isrc/parser -Isrc/compiler -Itests -o tests/test_parser.o tests/test_parser.c src/token/token.c src/lexer/lexer.c src/parser/parser.c src/compiler/compilador.c
+
+      - name: 📊 Testes do Léxico
+        run: |
+          ./tests/test_lexer.o
+
+      - name: 📊 Testes do Sintático
+        run: |
+          ./tests/test_parser.o

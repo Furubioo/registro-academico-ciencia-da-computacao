@@ -1,0 +1,32 @@
+name: Atividade Peterson (Autograding)
+
+on: [push]
+
+jobs:
+  build:
+    name: Compilação
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compilar Suite de Testes
+        run: |
+          clang src/peterson/peterson.c src/conta/conta.c  src/threads/thread.c test/test_suite.o -o test_suite -lpthread
+      - name: Upload do executável
+        uses: actions/upload-artifact@v4
+        with:
+          name: test_suite
+          path: test_suite
+
+  test:
+    name: Execução dos Testes
+    needs: build
+    runs-on: macos-latest
+    steps:
+      - name: Download do executável
+        uses: actions/download-artifact@v4
+        with:
+          name: test_suite
+      - name: Permissões de execução
+        run: chmod +x test_suite
+      - name: Rodar Testes
+        run: ./test_suite

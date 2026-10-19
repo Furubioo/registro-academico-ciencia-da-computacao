@@ -1,0 +1,13 @@
+def dados_():
+    palavra = (input("digite uma palavra"))
+    return palavra
+
+
+def filtra_vogais(palavra):
+    for i in palavra:
+        if i != "a" and i != "e" and i != "i" and i != "o" and i != "u":
+            print(f"resultado é: {i}")
+
+
+palavra = dados_()
+filtra_vogais(palavra)

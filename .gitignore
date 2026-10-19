@@ -1,0 +1,29 @@
+# Build artifacts
+*.exe
+*.o
+*.class
+build/
+out/
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+*.dat
+*.log
+
+# Virtual environments and notebooks
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Editor and OS metadata
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local execution output
+coverage/
+htmlcov/
+pytest_cache/
